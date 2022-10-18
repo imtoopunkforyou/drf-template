@@ -11,6 +11,11 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+launch_point = os.environ.get('LAUNCH_POINT', 'local')
+if launch_point == 'stand':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.stand')
+else:
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.local')
 
 application = get_wsgi_application()
+
