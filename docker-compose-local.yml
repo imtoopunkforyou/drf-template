@@ -25,4 +25,3 @@ services:
       - postgres-data:/var/lib/postgresql/data
     env_file:
       - .env-local
-
